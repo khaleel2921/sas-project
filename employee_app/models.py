@@ -3,7 +3,7 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse
 # Create your models here.
 class employee(models.Model):
-    employeeid=models.AutoField(primary_key=True,unique=True)
+    employeeid=models.IntegerField(primary_key=True,unique=True)
     firstname=models.CharField(max_length=50,unique=True)
     lastname=models.CharField(max_length=50,unique=True)
     email=models.EmailField(max_length=50)

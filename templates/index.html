@@ -1,24 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Employee Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .introblocks {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .introblocks a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .introblocks a:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-<div class="wrapper row3">
-    <main class="hoc container clear">
-      <section id="introblocks">
-        <ul class="nospace group btmspace-80">
-            <h1>Employee Managent</h1>
-            <a href="add_employee">Add Employee</a><br>
-        </ul>
-      </section>
-    </main>
+
+<header>
+    <h1>Employee Management</h1>
+</header>
+
+<div class="container">
+    <section class="introblocks">
+        <h2>Welcome to Employee Management</h2>
+        <a href="add_employee">Add Employee</a>
+        <a href="employee_list">List Employees</a>
+    </section>
 </div>
 
-<div>
-{% for list in object %}
-<a href="employee_list">Employee List</a>
-{% endfor %}
+<div class="footer">
+    <p>&copy; 2024 Employee Management. All rights reserved.</p>
 </div>
 
 </body>

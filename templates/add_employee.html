@@ -1,82 +1,118 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Employee Management Form</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style media="screen">
-body{
-  font-family: Calibri, Helvetica, sans-serif;
-  background-color: green;
-}
-.container {
-    padding: 50px;
-  background-color: lightblue;
-}
-
-input[type=text], input[type=password], textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-input[type=text]:focus, input[type=password]:focus {
-  background-color: rgb(235, 245, 94);
-  outline: none;
-}
- div {
-   padding: 10px 0;
-         }
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-.registerbtn:hover {
-  opacity: 1;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=number] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .registerbtn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .registerbtn:hover {
+            background-color: #0056b3;
+        }
+        .message-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .message-container h3 {
+            color: #d9534f;
+        }
+        .nav-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<form action="add_employee" method="post">
-    {% csrf_token %}
-  <div class="container">
-   <h1> Employee Registration Form </h1>
-  <hr>
-  <label> Employee ID </label>
-<input type="text" name="employeeid" placeholder= "Employee ID" size="15" required /><br>
-  <label> Firstname </label>
-<input type="text" name="firstname" placeholder= "Firstname" size="15" required /><br>
-  <label> Lastname </label>
-<input type="text" name="lastname" placeholder="Lastname" size="15"required /><br>
-  <label> Email </label>
-<input type="email" placeholder="Enter Email" name="email" size="15" required /><br>
-  <label> Contact Number </label>
-<input type="number" name="contactnumber" placeholder="Contact Number" size="15"required /><br>
-  <label> Department </label>
-<input type="text" name="department" placeholder="Department" size="15"required /><br>
-  <label> Designation </label>
-<input type="text" name="designation" placeholder="Designation" size="15"required /><br>
-      <button type="submit"  class="registerbtn" value="add_employee">Submit</button>
-</div>
-</form>
-<div>
-    {% for message in messages %}
-    <h3>{{message}}</h3>
-    {% endfor %}
-</div>
-<li class="nav-item">
-    <a class="nav-link" href="employee_form/add_employee">Add Employee</a>
-</li>
+    <form action="{% url 'add_employee' %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Employee Registration Form</h1>
+            <label for="employeeid">Employee ID</label>
+            <input type="text" id="employeeid" name="employeeid" placeholder="Employee ID" required />
+
+            <label for="firstname">Firstname</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Firstname" required />
+
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Lastname" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required />
+
+            <label for="contactnumber">Contact Number</label>
+            <input type="number" id="contactnumber" name="contactnumber" placeholder="Contact Number" required />
+
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" placeholder="Department" required />
+
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" name="designation" placeholder="Designation" required />
+
+            <button type="submit" class="registerbtn">Submit</button>
+        </div>
+    </form>
+
+    <div class="message-container">
+        {% for message in messages %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+
+    <a class="nav-link" href="{% url 'add_employee' %}">Add Employee</a>
 </body>
 </html>
