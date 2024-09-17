@@ -1,0 +1,22 @@
+<div class="wrapper row3">
+    <main class="hoc container clear">
+      <section id="introblocks">
+        <ul class="nospace group btmspace-80">
+          {% for s in sr %}
+          <li class="one_third">
+              <figure><a class="imgover" href="{{s.get_url}}" ></a>
+                <h6 class="heading">{{s.employeeid}}</h6>
+                <p>Firstname  :{{s.firstname}}</p>
+                <br>
+                <p>Deapartment:{{s.department}}</p>
+                <br>
+                <br>
+              </figure>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <hr class="btmspace-80">
+      <div class="clear"></div>
+    </main>
+  </div>

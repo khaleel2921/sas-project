@@ -51,7 +51,7 @@ hr {
 <form action="add_employee" method="post">
     {% csrf_token %}
   <div class="container">
-   <center><h1> Employee Registration Form </h1></center>
+   <h1> Employee Registration Form </h1>
   <hr>
   <label> Employee ID </label>
 <input type="text" name="employeeid" placeholder= "Employee ID" size="15" required /><br>
@@ -67,7 +67,7 @@ hr {
 <input type="text" name="department" placeholder="Department" size="15"required /><br>
   <label> Designation </label>
 <input type="text" name="designation" placeholder="Designation" size="15"required /><br>
-  <input type="submit" value="add_employee" class="registerbtn">
+      <button type="submit"  class="registerbtn" value="add_employee">Submit</button>
 </div>
 </form>
 <div>
